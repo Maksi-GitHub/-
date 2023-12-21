@@ -1,0 +1,38 @@
+﻿#include <iostream>
+using namespace std;
+
+void printCharacter(char ch, int count) 
+{
+    for (int i = 0; i < count; ++i) 
+    {
+        std::cout << ch;
+    }
+}
+
+void printPattern(int currentCount, int maxCount) 
+{
+    setlocale(LC_ALL, "rus");
+    char currentChar = 'А' + (maxCount - currentCount) % 32;
+
+    if (currentCount <= 0) 
+    {
+        return;
+    }
+
+    printCharacter(currentChar, currentCount);
+    cout<< endl;
+
+    printPattern(currentCount - 4, maxCount);
+
+    printCharacter(currentChar, currentCount);
+    cout << endl;
+}
+
+int main() 
+{
+    int maxCount = 120;
+
+    printPattern(maxCount, maxCount);
+
+    return 0;
+}

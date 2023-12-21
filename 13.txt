@@ -1,0 +1,66 @@
+﻿#include <iostream>
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+
+int CheckDate(int year, int month, int day)
+{
+    if (year < 1 || month < 1 || month > 12 || day < 1)
+    {
+        return false;
+    }
+
+    int daysInMonth[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+    if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))
+    {
+        daysInMonth[2] = 29;
+    }
+
+    if (day > daysInMonth[month])
+    {
+        return false;
+    }
+
+    return true;
+}
+
+void InputDate(int& year, int& month, int& day)
+{
+    printf("Введите дату в формате 'гггг.мм.дд': ");
+    scanf_s("%d.%d.%d", &year, &month, &day);
+}
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+
+    int year = 0;
+    int month = 0;
+    int day = 0;
+
+    InputDate(year, month, day);
+
+    if (CheckDate(year, month, day))
+    {
+        printf("Дата является верной.\n\n");
+    }
+    else
+    {
+        printf("Дата является неверной.\n\n");
+    }
+
+
+    printf("Введите дату в формате 'мм.дд': ");
+    scanf_s("%d.%d", &month, &day);
+
+    if (CheckDate(year, month, day))
+    {
+        printf("Дата является верной.\n\n");
+    }
+    else
+    {
+        printf("Дата является неверной.\n\n");
+    }
+
+    return 0;
+}

@@ -1,0 +1,74 @@
+﻿#include <iostream>
+#include <vector>
+
+using namespace std;
+
+ //Задание 1
+ double CalculateS(int n)
+ {
+     double sum = 0.0;
+ 
+     for (int i = 0; i <= n; i++)
+     {
+         double term = 1.0 / pow(2 * i + 1, 2);
+         sum += term;
+     }
+ 
+     return sum;
+ }
+ 
+ int main()
+ {
+     setlocale(LC_ALL, "rus");
+     cout << "Введите натуральное число n: ";
+     int n;
+     cin >> n;
+ 
+     double result = CalculateS(n);
+ 
+     cout << "Значение S для n = " << n << ": " << result << endl;
+ 
+     return 0;
+ }
+
+//// Задание 2
+//double CalculateAverage(const vector<int>& array)
+//{
+//    if (array.empty())
+//    {
+//        return 0.0;
+//    }
+//
+//    int sum = 0;
+//
+//    for (int number : array)
+//    {
+//        sum += number;
+//    }
+//
+//    return static_cast<double>(sum) / array.size();
+//}
+//
+//int main()
+//{
+//    setlocale(LC_ALL, "rus");
+//    cout << "Введите количество чисел N: ";
+//    int n;
+//    cin >> n;
+//
+//    vector<int> numbers(n);
+//
+//    // Вводим числа от пользователя
+//    for (int i = 0; i < n; i++)
+//    {
+//        cout << "Введите число " << i + 1 << ": ";
+//        cin >> numbers[i];
+//    }
+//
+//    // Вычисляем среднее арифметическое
+//    double average = CalculateAverage(numbers);
+//
+//    cout << "Среднее арифметическое: " << average << endl;
+//
+//    return 0;
+//}

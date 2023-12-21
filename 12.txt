@@ -1,0 +1,42 @@
+﻿#include <iostream>
+#include <cmath>
+
+// Функция для вычисления значения функции
+double customFunction(double x) {
+    return sin(sqrt(pow(x, 5) + 2 * x));
+}
+
+// Функция для построения графика
+void plotGraph(int width, int height, double minX, double maxX, double step) {
+    for (double y = height; y >= 0; --y) {
+        for (double x = minX; x <= maxX; x += step) {
+            double normalizedY = customFunction(x) * height;
+
+            if (fabs(normalizedY - y) < 0.5) {
+                std::cout << '*';  // Знак для отображения графика
+            }
+            else if (y == 0) {
+                std::cout << '-';  // Ось X
+            }
+            else if (x == 0) {
+                std::cout << '|';  // Ось Y
+            }
+            else {
+                std::cout << ' ';
+            }
+        }
+        std::cout << std::endl;
+    }
+}
+
+int main() {
+    int width = 80;  
+    int height = 20; 
+    double minX = -5.0;
+    double maxX = 5.0;
+    double step = 0.1;
+
+    plotGraph(width, height, minX, maxX, step);
+
+    return 0;
+}

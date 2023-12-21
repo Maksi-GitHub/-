@@ -1,0 +1,95 @@
+﻿#include <iostream>
+
+using namespace std;
+
+// Задание 1
+// long long CalculateFactorial(int number)
+// {
+//     if (number == 0 || number == 1)
+//     {
+//         return 1;
+//     }
+// 
+//     long long result = 1;
+// 
+//     for (int i = 2; i <= number; i++)
+//     {
+//         result *= i;
+//     }
+// 
+//     return result;
+// }
+// 
+// long long CalculateFactorialSum(int n)
+// {
+//     long long sum = 0;
+// 
+//     for (int i = 1; i <= n; i++)
+//     {
+//         sum += CalculateFactorial(i);
+//     }
+// 
+//     return sum;
+// }
+// 
+// int main()
+// {
+//     cout << "Введите натуральное число N: ";
+//     int n;
+//     cin >> n;
+// 
+//     long long sum = CalculateFactorialSum(n);
+// 
+//     cout << "Сумма факториалов от 1! до " << n << "!: " << sum << endl;
+// 
+//     return 0;
+// }
+
+// Задание 2
+long long CalculatePower(int baseNumber, int exponent)
+{
+    if (exponent == 0)
+    {
+        return 1;
+    }
+
+    long long result = 1;
+
+    for (int i = 0; i < exponent; i++)
+    {
+        result *= baseNumber;
+    }
+
+    return result;
+}
+
+long long CalculatePowerSum(int n, int m)
+{
+    long long sum = 0;
+
+    for (int i = 1; i <= n; i++)
+    {
+        sum += CalculatePower(i, m);
+    }
+
+    return sum;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+
+    cout << "Введите натуральное число N: ";
+    int n;
+    cin >> n;
+
+    cout << "Введите степень M: ";
+    int m;
+    cin >> m;
+
+    long long sum = CalculatePowerSum(n, m);
+
+    cout << "Сумма чисел от 1 до " << n << ", возведенных в степень " << m << ": " << sum << endl;
+
+    return 0;
+}
